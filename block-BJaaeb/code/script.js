@@ -6,7 +6,7 @@ default value to be "text" and return the input element inside label. (create it
 */
 
 // Your code goes here
-
+xyz
 // TEST
 createInputElm('Your name'); //<label>Your name: <input type="text"></label>
 createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></label>
