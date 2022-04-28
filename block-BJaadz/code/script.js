@@ -1,6 +1,6 @@
 // Select the h1 element and store it in a variable named heading.
 
-let heading = document.querySelector('h1');
+let heading = document.querySelector('h1'); 
 
 // Check the typeof heading and log it.
 
@@ -52,11 +52,13 @@ heading.style.fontSize = '3rem';
 
 // Change the border of hr with class 'image' to `2px solid purple`.
 
-document.querySelector('.image').style.border = `2px solid purple`;
+document.querySelectorall('hr.image').style.border = `2px solid purple`;
 
 // Hide the box number 17 (last box).
 
-// document.querySelector('.box seventeen').style.border = "red";
+document.querySelector('.seventeen').style.display = 'none';
+
+// document.querySelector('.seventeen').style.border = "red";
 
 // Change the border of all the hr element from solid to dashed type
 
@@ -74,6 +76,10 @@ para.innerText = "querySelector returns an element you can maupulate but querySe
 
 // Remove all the elements from box 1
 
+let box1 = document.querySelector('.one');
+
+box1.innerHTML = "";
+
 // let rmBox1 = document.querySelector(".one")
 
 // rmBox1.remove()
@@ -81,9 +87,9 @@ para.innerText = "querySelector returns an element you can maupulate but querySe
 // Replace all the elements inside box 1 with the para (you created above)
 
 
-let adBox1 = document.querySelector('.one');
 
-adBox1.append(para);
+
+box1.append(para);
 
 
 /* Walking the DOM
@@ -106,15 +112,17 @@ Do the following after selecting box 16 and storing in variable named box16
 
 let box16 = document.querySelector('.sixteen');
 
-box16.parentNode;
-box16.childNodes;
-box16.previousSibling;
-box16.firstChild;
-box16.lastChild;
-box16.previousElementSibling;
-box16.nextElementSibling;
-box16.firstElementChild;
-box16.lastElementChild;
+// console.log(box16.parentNode);
+// console.log(box16.childNodes);
+// console.log(box16.previousSibling);
+// console.log(box16.firstChild);
+// console.log(box16.lastChild);
+
+
+// console.log(box16.previousElmentSibling);
+// console.log(box16.nextElementSibling);
+// console.log(box16.firstElementChild);
+// console.log(box16.lastElementChild);
 
 
 // Select box 2 and append a new paragraph element with content "Append inserts as last child" just after hr element.
@@ -135,7 +143,7 @@ newPara2.innerText = "Prepend inserts as first child";
 
 let appendedBox3 = document.querySelector('.three');
 
-appendedBox3.append(newPara2);
+appendedBox3.prepend(newPara2);
 
 // Change the border of box 4 to '1px solid black'
 
@@ -153,7 +161,7 @@ document.querySelector('.six').style.color = 'black';
 
 // Change the font size of the para inside box 1 to 0.8rem.
 
-document.querySelector('.one').style.fontSize = 'o.8rem';
+para.style.fontSize = 'o.8rem';
 
 // Change the background of all the alternate boxes (1, 3, 5, ....) to aliceblue
 
@@ -161,16 +169,19 @@ let box = document.querySelectorAll('.box');
 
 let allBox = Array.from(box);
 
-for(let box of allBox) {
-  box.length
-}
+allBox.forEach((elm,index) => {
+  if((index + 1) % 2 !== 0 ) {
+    elm.style.backgroundColor = "aliceblue";
+  }
+} )
 
 
 // add a class named "awesome-box" to the box 6 using classList property of DOM element.
 
 let box6 = document.querySelector('.six');
 
-box6.className = "awesome-box";
+// box6.className = "awesome-box";
+box6.classList.add('awesome-boc');
 
 // Using the toggle classList property toggle the class `awesome-box` from box 2
 
@@ -192,35 +203,35 @@ let btn = document.createElement('button');
 
 // textContent of the button should be 'Click Me'
 
-// btn = btn.innerText = 'Click Me';
+btn.innerText = 'Click Me';
 
 // // Change the background of the btn to 'oldlace'
 
-// btn = document.btn.style.color = 'oldlace';
+btn.style.backgroundColor = 'oldlace';
 
 // // Change the font size of the btn to 1rem
 
-// btn = btn.style.fontSize = '1rem';
+btn.style.fontSize = '1rem';
 
 // // Change the border of the btn to '1px solid black'
 
-// btn = btn.style.border = '1px solid black';
+btn.style.border = '1px solid black';
 
 // // Add the padding of '0.5rem 1rem' to btn
 
-// btn = btn.style.padding = '0.5rem 1rem';
+btn.style.padding = '0.5rem 1rem';
 
 // // Append the btn in box number 9
 
-// // let box9 = document.querySelector('.nine');
+let box9 = document.querySelector('.nine');
 
-// // box9 = box9.append(btn);
+box9.append(btn);
 
 // Create a img element with src value `https://images.unsplash.com/photo-1592500595497-d1f52a40b207?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80` and store in a variable named imgElm
 
 let imgElm = document.createElement('img');
 
-imgElm.src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.imgacademy.com%2Fabout-img-academy&psig=AOvVaw2DHynXLhF6emYenFJhJICG&ust=1651135185303000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLiPmvDss_cCFQAAAAAdAAAAABAD";
+imgElm.src = `https://images.unsplash.com/photo-1592500595497-d1f52a40b207?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80`;
 
 // Select the box 7 using class seven
 
@@ -228,7 +239,7 @@ let box7 = document.querySelector('.seven');
 
 // Remove all the elements form box seven
 
-
+box7.innerHTML = "";
 
 // Append the imgElm to the box no 7
 
@@ -237,6 +248,7 @@ box7.append(imgElm);
 // Change the width and height of the image to `100%`
 
 imgElm.style.width = '100%';
+imgElm.style.height = '100%';
 
 // Select the box 5 using class five
 
@@ -248,7 +260,7 @@ let input = document.createElement('input');
 
 // Change the placeholder property of the input element to "Enter you email!"
 
-input.getAttribute('placeholder') = "Enter you email!";
+input.placeholder = "Enter you email!";
 
 // Append the input element to the box 5 you selected above
 
@@ -256,8 +268,20 @@ box5.append(input);
 
 // Create two anchor (a) element with  the text of `AltCampus` and `Google`
 
-document.createElement 
+let anchorOne = document.createElement('a');
+
+anchorOne.innerText = "AltCampus"; 
+
+let anchorTwo = document.createElement('a');
+
+anchorTwo.innerText = "Google"; 
 
 // Change the href property of the anchor elements to `https://altcampus.school` and `https://google.com`
 
+anchorOne.href = `https://altcampus.school`;
+
+anchorTwo.href = `https://google.com`;
+
 // Append both the elements to box 5 you selected above.
+
+box5.append(anchorOne,anchorTwo);
