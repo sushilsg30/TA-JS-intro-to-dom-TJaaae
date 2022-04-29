@@ -1,5 +1,4 @@
-{
-    books: [
+     books = [
       {
         isbn: "9781593275846",
         title: "Eloquent JavaScript, Second Edition",
@@ -114,5 +113,25 @@
           "A JavaScript pattern and antipattern collection that covers function patterns, jQuery patterns, jQuery plugin patterns, design patterns, general patterns, literals and constructor patterns, object creation patterns, code reuse patterns, DOM and browser patterns",
         website: "https://shichuan.github.io/javascript-patterns/",
       },
-    ],
-  };
+    ];
+
+
+
+
+
+let ul = document.querySelector("ul");
+
+books.forEach((char) => {
+    let li = document.createElement('li');
+    let  img = document.createElement('img');
+    img.src = char.image;
+    let h2 = document.createElement('h2');
+    h2.innerText = char.title;
+    let h4 = document.createElement('h4');
+    h4.innerText = char.author;
+    let buttton = document.createElement('button')
+    buttton.src = char.website;
+
+    li.append(img,h2,h4,buttton);
+    ul.append(li);
+} ) ;
